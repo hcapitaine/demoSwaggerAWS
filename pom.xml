@@ -37,7 +37,44 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+
+
+			<plugin>
+				<groupId>com.github.kongchen</groupId>
+				<artifactId>swagger-maven-plugin</artifactId>
+				<version>3.1.8</version>
+				<executions>
+					<execution>
+						<id>v1</id>
+						<phase>compile</phase>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+						<configuration>
+							<apiSources>
+								<apiSource>
+									<springmvc>true</springmvc>
+									<locations>
+										<location>com.eulerhermes.demoSwaggerAWS.v1</location>
+									</locations>
+									<schemes>https</schemes>
+									<info>
+										<title>My search api</title>
+										<version>v1</version>
+										<description>
+											This api provides search capabilities on business objects
+										</description>
+									</info>
+									<outputFormats>yaml</outputFormats>
+									<swaggerDirectory>${project.build.directory}</swaggerDirectory>
+									<swaggerFileName>swaggerV1</swaggerFileName>
+									<attachSwaggerArtifact>true</attachSwaggerArtifact>
+								</apiSource>
+							</apiSources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
-
 </project>
