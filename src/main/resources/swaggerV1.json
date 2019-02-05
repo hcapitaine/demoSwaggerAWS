@@ -1,0 +1,15 @@
+{
+  "x-amazon-apigateway-integration": {
+    "uri": "https://${nginx_uri}/searchApi/v1/businessObject",
+    "passthroughBehavior": "when_no_match",
+    "timeoutInMillis": 29000,
+    "connectionType": "VPC_LINK",
+    "connectionId": "${vpcConnectionId}",
+    "type": "http_proxy",
+    "responses": {
+      "default": {
+        "statusCode": "404"
+      }
+    }
+  }
+}
